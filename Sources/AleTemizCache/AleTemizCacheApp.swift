@@ -2,12 +2,12 @@ import SwiftUI
 import AppKit
 
 @main
-struct TemizCacheApp: App {
+struct AleTemizCacheApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     @StateObject private var model = AppModel()
 
     var body: some Scene {
-        Window("TemizCache", id: "main") {
+        Window("AleTemizCache", id: "main") {
             RootView()
                 .environmentObject(model)
                 .frame(minWidth: 820, minHeight: 560)
@@ -16,7 +16,7 @@ struct TemizCacheApp: App {
         .windowToolbarStyle(.unified)
         .commands {
             CommandGroup(replacing: .appInfo) {
-                Button("About TemizCache") { AppDelegate.showAboutPanel() }
+                Button("About AleTemizCache") { AppDelegate.showAboutPanel() }
             }
             CommandGroup(replacing: .newItem) {}
             CommandMenu("Clean") {
@@ -65,7 +65,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             attributes: [.font: NSFont.systemFont(ofSize: 11, weight: .medium), .foregroundColor: NSColor.labelColor]
         )
         credits.append(NSAttributedString(
-            string: "Brand: \(Brand.identity)\n",
+            string: "Brand: \(Brand.brand) · Developer identity: \(Brand.identity)\n",
             attributes: [.font: NSFont.systemFont(ofSize: 11), .foregroundColor: NSColor.secondaryLabelColor]
         ))
         credits.append(NSAttributedString(

@@ -1,6 +1,6 @@
 import Foundation
 
-/// Decides which folders TemizCache is allowed to empty.
+/// Decides which folders AleTemizCache is allowed to empty.
 ///
 /// A cleaner that deletes the wrong folder destroys user data, so every path passes
 /// through this check before any size scan or removal. User supplied definitions

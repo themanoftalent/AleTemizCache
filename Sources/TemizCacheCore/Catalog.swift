@@ -3,7 +3,7 @@ import Foundation
 /// Built-in cache definitions plus optional user additions.
 ///
 /// Users can add their own entries in
-/// `~/Library/Application Support/TemizCache/targets.json`, an array of `CacheTarget`
+/// `~/Library/Application Support/AleTemizCache/targets.json`, an array of `CacheTarget`
 /// objects. An entry whose `id` matches a built-in replaces it.
 public enum Catalog {
     public static let builtIn: [CacheTarget] = [
@@ -207,6 +207,11 @@ public enum Catalog {
     ]
 
     public static func userFileURL(home: URL) -> URL {
+        home.appendingPathComponent("Library/Application Support/AleTemizCache/targets.json")
+    }
+
+    /// Location used before the AleTemizCache rename. Read only when the new file is absent.
+    public static func legacyUserFileURL(home: URL) -> URL {
         home.appendingPathComponent("Library/Application Support/TemizCache/targets.json")
     }
 
@@ -228,7 +233,11 @@ public enum Catalog {
 
         builtIn.forEach(add)
 
-        let userURL = userFileURL(home: home)
+        var userURL = userFileURL(home: home)
+        if !fileManager.fileExists(atPath: userURL.path),
+           fileManager.fileExists(atPath: legacyUserFileURL(home: home).path) {
+            userURL = legacyUserFileURL(home: home)
+        }
         if fileManager.fileExists(atPath: userURL.path) {
             do {
                 let data = try Data(contentsOf: userURL)

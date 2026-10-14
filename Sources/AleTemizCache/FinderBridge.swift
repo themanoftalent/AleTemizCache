@@ -2,7 +2,7 @@ import Foundation
 import AppKit
 
 /// Talks to Finder through Apple Events. macOS asks the user once for permission
-/// ("TemizCache wants to control Finder"); the reason text comes from
+/// ("AleTemizCache wants to control Finder"); the reason text comes from
 /// NSAppleEventsUsageDescription in Info.plist.
 enum FinderBridge {
     enum Failure: Error, Equatable {

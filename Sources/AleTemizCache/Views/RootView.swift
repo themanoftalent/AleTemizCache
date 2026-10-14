@@ -153,6 +153,7 @@ struct SidebarView: View {
             }
         }
         .listStyle(.sidebar)
+        .safeAreaInset(edge: .top) { BrandHeader() }
         .safeAreaInset(edge: .bottom) { diskFooter }
     }
 

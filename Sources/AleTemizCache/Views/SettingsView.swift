@@ -77,7 +77,7 @@ struct SettingsView: View {
                 LabeledContent("Full Disk Access") {
                     Button("Open Settings") { SystemSettings.open(.fullDiskAccess) }
                 }
-                Text("Optional. Lets TemizCache measure the Trash and reach caches that macOS protects.")
+                Text("Optional. Lets AleTemizCache measure the Trash and reach caches that macOS protects.")
                     .font(.caption).foregroundStyle(.secondary)
                 LabeledContent("Automation (Finder)") {
                     Button("Open Settings") { SystemSettings.open(.automation) }
@@ -88,9 +88,10 @@ struct SettingsView: View {
             Section("About") {
                 LabeledContent("Version", value: Brand.version)
                 LabeledContent("Developed by", value: Brand.developer)
-                LabeledContent("Brand", value: Brand.identity)
+                LabeledContent("Brand", value: Brand.brand)
+                LabeledContent("Developer identity", value: Brand.identity)
                 LabeledContent("Locations tracked", value: "\(model.rows.count)")
-                Link("github.com/themanoftalent/TemizCache", destination: Brand.repository)
+                Link("github.com/themanoftalent/AleTemizCache", destination: Brand.repository)
                 Text(Brand.credit)
                     .font(.caption).foregroundStyle(.secondary)
             }

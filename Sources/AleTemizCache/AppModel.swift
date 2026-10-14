@@ -322,7 +322,7 @@ final class AppModel: ObservableObject {
         await refreshTrash()
 
         if !problems.isEmpty {
-            NSLog("TemizCache: %d item(s) not removed:\n%@", problems.count, problems.joined(separator: "\n"))
+            NSLog("AleTemizCache: %d item(s) not removed:\n%@", problems.count, problems.joined(separator: "\n"))
         }
         let skippedNote = problems.isEmpty ? nil : "\(problems.count) item(s) were in use or protected and stayed. Quit the related apps and try again."
 
@@ -413,7 +413,7 @@ final class AppModel: ObservableObject {
     private func showFinderError(_ error: FinderBridge.Failure) {
         switch error {
         case .notAuthorized:
-            var toast = Toast(style: .error, title: "TemizCache may not control Finder",
+            var toast = Toast(style: .error, title: "AleTemizCache may not control Finder",
                               detail: "Allow it in System Settings › Privacy & Security › Automation, or grant Full Disk Access.")
             toast.action = .openAutomation
             toast.actionTitle = "Open Settings"

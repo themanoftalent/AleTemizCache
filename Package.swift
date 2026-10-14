@@ -2,16 +2,16 @@
 import PackageDescription
 
 let package = Package(
-    name: "TemizCache",
+    name: "AleTemizCache",
     platforms: [.macOS(.v14)],
     products: [
-        .executable(name: "TemizCache", targets: ["TemizCache"]),
+        .executable(name: "AleTemizCache", targets: ["AleTemizCache"]),
         .library(name: "TemizCacheCore", targets: ["TemizCacheCore"])
     ],
     targets: [
         .target(name: "TemizCacheCore"),
         .executableTarget(
-            name: "TemizCache",
+            name: "AleTemizCache",
             dependencies: ["TemizCacheCore"]
         ),
         .testTarget(
